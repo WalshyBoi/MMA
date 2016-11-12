@@ -1,0 +1,10 @@
+{
+  "name": "Software-Frameworks",
+  "version": "0.0.1",
+  "description": "React labs",
+  "dependencies": {
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0",
+    "lodash" :  "~2.4.1"
+  }
+}
