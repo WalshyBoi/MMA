@@ -1,10 +1,22 @@
 {
-  "name": "Software-Frameworks",
+  "name": "mmaAPP",
   "version": "0.0.1",
-  "description": "React labs",
+  "private": true,
+  "devDependencies": {
+    "react-scripts": "0.2.1"
+  },
   "dependencies": {
-    "react": "^0.14.0",
-    "react-dom": "^0.14.0",
-    "lodash" :  "~2.4.1"
+    "bootstrap": "^3.3.6",
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1",
+    "reactable": "^0.14.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/react-scripts/config/eslint.js"
   }
 }
