@@ -7,13 +7,33 @@ var Table = Reactable.Table,
     Thead = Reactable.Thead,
     Th = Reactable.Th;
 
+class Header extends React.Component{
+	render(){
+		return(
+			
+			<header>{this.props.header}</header>
+		);
+		
+	}
+	
+}
 
+class Fighter extends React.Component{
+  render() {
+   
 
+  }
+}
 
+       
 
 class FighterList extends React.Component {
   render() {
-    return (<div className="table">
+    return (
+	<div>
+	   <Header header={"Random"} />
+	  
+	<div className="table">
       <Table className="table"
         filterable={['name', 'weight', 'record']}
         noDataText="No matching records found"
@@ -29,6 +49,7 @@ class FighterList extends React.Component {
          
         </Thead>
       </Table>
+	  </div>
 	  </div>
     )
   }
