@@ -16,4 +16,11 @@ body {
 
 h1 {
   border-bottom: 1px solid gray;
+
+}
+
+#navbar {
+
+	 padding-bottom: 10em;
+
 }
