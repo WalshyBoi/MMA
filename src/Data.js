@@ -48,7 +48,7 @@ export var allLightWeights =
  export var allWelterWeights = 
               [ 
 			    {id: 0, name: "(C)Tyron Woodley", win: 21, lose:3, height: "5' 7", img: "./pics/WelterWeight/T-W.png"},
-				{id: 1, name: "Stephen Thompson", win: 13,lose:1, height: "6'0", img: "./pics/WelterWeight/S-T"},
+				{id: 1, name: "Stephen Thompson", win: 13,lose:1, height: "6'0", img: "./pics/WelterWeight/S-T.png"},
 				{id: 2, name: "Robbie Lawlor", win: 27,lose:11, height: "5'11", img: "./pics/WelterWeight/R-L.png"},
 				{id: 3, name: "Demian Maia", win: 24,lose:6, height: "6'1", img: "./pics/WelterWeight/D-M.png"},
 				{id: 4, name: "Carlos Condit", win: 30,lose:10, height: "6'2", img: "./pics/WelterWeight/C-C.png"},

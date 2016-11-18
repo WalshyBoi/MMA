@@ -145,9 +145,13 @@ export class Pound4Pound extends React.Component {
  export class Fighter extends React.Component {
   render() {
 
-    const { data } = this.props;
+    const { data, filterText } = this.props;
     console.log(data)
-    const namesList = data.map(fighter =>{
+    const namesList = data.filter(fighter =>{
+     
+      return fighter.name.toLowerCase().indexOf(filterText) >= 0
+    })
+    .map(fighter =>{
     
     return(
       
@@ -176,11 +180,6 @@ export class Pound4Pound extends React.Component {
     }}
   /></div></div>
 
-          
-
- 
-
-
               </li>
 
     )
@@ -188,11 +187,42 @@ export class Pound4Pound extends React.Component {
     })
     return(
      
-    <div id="grid"><ul>{namesList}</ul></div>
+    <div id="grid"><p>filterText value is {this.props.filterText}</p><ul>{namesList}</ul></div>
     
     );
     }
   }
+
+  export class NamesList extends React.Component{
+
+    render() {
+
+      const { data } = this.props;
+      console.log(data)
+      const namesList = data.map(fighter =>{
+
+        return(
+        
+        <li key={fighter.id} className="thumbnailfighter">
+
+        <h1> <div id="fightertitle">{fighter.name}</div></h1>
+
+        </li>
+
+        )
+
+      })
+      return(
+
+      <ul>{namesList}</ul>
+      
+      );
+      
+    }  
+}
+
+
+
 
 
 
@@ -222,33 +252,61 @@ export class Pound4Pound extends React.Component {
        
 
 export class FighterList extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      
+    }
+  }
+
+  filterUpdate(value){
+   this.setState({
+    filterText: value
+   })
+  }
+
+
+
   render() {
+    console.log('filterText state from parent component', this.state.filterText)
     return (
 	<div>
 	   <NavBarConstant />
-      
-	<div className="table">
-      <Table className="table"
-        filterable={['name', 'weight', 'record']}
-        noDataText="No matching records found"
-        itemsPerPage={5}
-        currentPage={0}
-        sortable={true}
-        data={AllFighters}>
-        <Thead>
-          <Th column="name">
-            <strong className="name-header">Name</strong>
-          </Th>
-          
-          <Th column="weight">Weight</Th>
-          <Th column="record">Record</Th>
-		  <Th column="img">CountryIcon</Th>
+      <Search 
+       filterText={this.state.filterText}
+       filterUpdate={this.filterUpdate.bind(this)}
+       />
 
-        </Thead>
-      </Table>
-	  </div>
+       <Fighter data={allWelterWeights} 
+        filterText={this.state.filterText}
+        />
+	
 	  </div>
     )
   }
 }
 
+export class Search extends React.Component{
+
+filterUpdate(){
+  const val = this.myValue.value
+  this.props.filterUpdate(val)
+}
+render(){
+console.log('filter value',this.props.filterText)
+return(
+  <form>
+  <input
+   type="text"
+   ref={ (value) => this.myValue = value }
+   placeholder="Enter Fighter Name..."
+   onChange={this.filterUpdate.bind(this)}
+  />
+  </form>
+
+)
+
+}
+
+
+}
