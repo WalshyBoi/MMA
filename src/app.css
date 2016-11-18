@@ -2,6 +2,7 @@
 
 body {
   padding-top: 20px;
+  background-color:white;
 }
 
 .table {
@@ -18,21 +19,68 @@ h1 {
   border-bottom: 1px solid gray;
 
 }
+.active{
+    color: #333;
+  border-bottom: 1px solid transparent;
+  padding: 0; /*removing spacing*/
+ 
+}
 
+
+#lineFighter{
+	float: right;
+    width: 63%;
+    
+    
+    padding-top:20px;
+} 
+  
 .thumbnailfighter {
-  padding-left: 10px;
-  border: 1px solid black;
-  display: inline-block;
-  margin: 1em;
-  background-color: #C0B283;
+    background-color: #d1c6c6;
+    float:left;
+    position: relative;
+    width: 30%;
+    padding-bottom : 0%; /* = width for a 1:1 aspect ratio */
+    margin:1.66%;
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-size:cover; /* you change this to "contain" if you don't want the images to be cropped */  
+
 }
 .thumbnailfighter img {
   height: auto;
   width: 350px;
   
 }
+#fightertitle {
+  
+ text-align: center;
+  
+}
+
+#pie{
+	display: none;
+}
+
+#outer:hover #pie {
+  
+  display: block;
+
+ 
+  
+}
 #navbar {
 
 	 padding-bottom: 1em;
-
+    
 }
+.thumbnailfighter #PieChart{
+  border:black;
+}
+
+imgWrap.thumbnailfighter   {
+  position: relative;
+  height: 200px;
+  width: 257px;
+}
+
