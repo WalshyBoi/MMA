@@ -19,8 +19,20 @@ h1 {
 
 }
 
+.thumbnailfighter {
+  padding-left: 10px;
+  border: 1px solid black;
+  display: inline-block;
+  margin: 1em;
+  background-color: #C0B283;
+}
+.thumbnailfighter img {
+  height: auto;
+  width: 350px;
+  
+}
 #navbar {
 
-	 padding-bottom: 10em;
+	 padding-bottom: 1em;
 
 }

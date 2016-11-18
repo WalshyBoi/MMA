@@ -1,6 +1,7 @@
 import React from 'react';
 import Reactable from 'reactable';
-import allFighters from './Data'
+import {AllFighters} from './Data'
+import {allFeatherWeights} from './Data'
 import './app.css' ;
 import { Navbar, NavItem, NavDropdown, MenuItem, Nav } from 'react-bootstrap';
 import {Router, Route, browserHistory, Link} from 'react-router';
@@ -56,7 +57,7 @@ const NavBarConstant = React.createClass({
 });
 
 
-class Pound4Pound extends React.Component {
+export class Pound4Pound extends React.Component {
   render() {
     return(
       <div>
@@ -69,7 +70,7 @@ class Pound4Pound extends React.Component {
 
 
 
-  class FeatherWeight extends React.Component {
+ export class FeatherWeight extends React.Component {
   render() {
     return(
       <div>
@@ -80,7 +81,49 @@ class Pound4Pound extends React.Component {
     }
   }
 
-  class LightWeight extends React.Component {
+ export class LightWeight extends React.Component {
+  render() {
+    return(
+      <div>
+      <NavBarConstant />
+      
+     <div id="fighter">
+      <Fighter data={allFeatherWeights} />
+      </div>
+    </div>
+    );
+    }
+  }
+ 
+ export class Fighter extends React.Component {
+  render() {
+
+    const { data } = this.props;
+    console.log(data)
+    const namesList = data.map(fighter =>{
+    
+    return(
+      
+      <li key={fighter.id} className="thumbnailfighter">
+                 
+                 <img src={require(fighter.img)} />
+                 
+                <p>{fighter.name}</p>
+
+              </li>
+
+    )
+
+    })
+    return(
+     
+    <ul>{namesList}</ul>
+    
+    );
+    }
+  }
+
+ export class WelterWeight extends React.Component {
   render() {
     return(
       <div>
@@ -91,18 +134,7 @@ class Pound4Pound extends React.Component {
     }
   }
 
-  class WelterWeight extends React.Component {
-  render() {
-    return(
-      <div>
-      <NavBarConstant />
-      
-    </div>
-    );
-    }
-  }
-
-  class HeavyWeight extends React.Component {
+ export class HeavyWeight extends React.Component {
   render() {
     return(
       <div>
@@ -114,7 +146,7 @@ class Pound4Pound extends React.Component {
   }
        
 
-class FighterList extends React.Component {
+export class FighterList extends React.Component {
   render() {
     return (
 	<div>
@@ -127,7 +159,7 @@ class FighterList extends React.Component {
         itemsPerPage={5}
         currentPage={0}
         sortable={true}
-        data={allFighters}>
+        data={AllFighters}>
         <Thead>
           <Th column="name">
             <strong className="name-header">Name</strong>
@@ -145,16 +177,3 @@ class FighterList extends React.Component {
   }
 }
 
-
-ReactDOM.render((
-    <Router history={browserHistory}>
-    <Route path="/" component={FighterList}>
-    <Route path="Home" component={FighterList} />
-    </Route>
-    <Route path="heavyweight" component={HeavyWeight} />
-    <Route path="lightweight" component={LightWeight} />
-    <Route path="welterweight" component={WelterWeight} />
-    <Route path="featherweight" component={FeatherWeight} />
-              
-    </Router>
-), document.getElementById('root'))
