@@ -65,18 +65,57 @@ h1 {
   
 }
 
+#wiki img
+{
+  display: none;
+  margin: auto;
+    width: 50px;
+    
+}
+
 #pie{
 	display: none;
+  margin: auto;
+    width: 50%;
 
 }
+#tweet{
+  float:right;
+  padding-right: 20%;
+  padding-top: 50px;
+}
+#tweet2{
+  float:right;
+  width:62%;
+  padding-top: 50px;
+}
+.thumbnailfighter li{
+	 list-style-type: none;
+}
+
+.thumbnailfighter h2{
+	 text-align: center;
+	 color: #312c32;
+}
+.thumbnailfighter h3{
+   text-align: center;
+   
+}
+
 
 #outer:hover #pie {
   
   display: block;
-  
- 
+   border-top: 3px solid #daad86;
   
 }
+#outer:hover #wiki img {
+  
+ display:inline;
+   
+  
+}
+
 #navbar {
 
 	 padding-bottom: 1em;
@@ -94,9 +133,4 @@ h1 {
   border:black;
 }
 
-imgWrap.thumbnailfighter   {
-  position: relative;
-  height: 200px;
-  width: 257px;
-}
 

@@ -13,26 +13,7 @@ import {LineChart} from 'react-easy-chart';
 import { Timeline } from 'react-twitter-widgets'
 
 
-var Table = Reactable.Table,
-    Thead = Reactable.Thead,
-    Th = Reactable.Th;
 
-
-class FighterBio extends React.Component{
-  render() {
-   return(
-   <div className="Bio">
-   <li>
-      <img src={require("./pics/mma.png")} />
-
-   </li>
-   </div>
-
-
-   )
-
-  }
-}
 
 
 
@@ -70,7 +51,8 @@ const NavBarConstant = React.createClass({
     return(
       <div>
       <NavBarConstant />
-      
+      <div id="tweet"><blockquote class="twitter-tweet" data-lang="en-gb"><p lang="en" dir="ltr">2014 I called this <a href="https://twitter.com/hashtag/DoubtMeNow?src=hash">#DoubtMeNow</a> <a href="https://t.co/ogaLUY3Eoh">https://t.co/ogaLUY3Eoh</a></p>&mdash; Conor McGregor (@TheNotoriousMMA) <a href="https://twitter.com/TheNotoriousMMA/status/798331554585919488">15 November 2016</a></blockquote>
+        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
       
      <div id="fighter">
       <Fighter data={allFeatherWeights} />
@@ -117,20 +99,11 @@ const NavBarConstant = React.createClass({
       return(
         <div>
         <NavBarConstant />
-        <div id = "lineFighter"><Timeline
-      dataSource={{
-        sourceType: 'profile',
-        screenName: 'TheNotoriousMMA'
-      }}
-      options={{
-        username: 'TheNotoriousMMA',
-        height: '400'
-      }}
-      onLoad={() => console.log('Timeline is loaded!')}
-    /></div>
-        <div id="fighter">
+        <div id="tweet"><blockquote class="twitter-tweet" data-lang="en-gb"><p lang="en" dir="ltr">2014 I called this <a href="https://twitter.com/hashtag/DoubtMeNow?src=hash">#DoubtMeNow</a> <a href="https://t.co/ogaLUY3Eoh">https://t.co/ogaLUY3Eoh</a></p>&mdash; Conor McGregor (@TheNotoriousMMA) <a href="https://twitter.com/TheNotoriousMMA/status/798331554585919488">15 November 2016</a></blockquote>
+        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+       
         <Fighter data={allLightWeights} />
-        </div>
+      
       </div>
       );
       }
@@ -148,8 +121,8 @@ const NavBarConstant = React.createClass({
           <h1> <div id="fightertitle">{fighter.name}</div></h1>
 
 
-          <img src={require(fighter.img)} />
-          <div id="outer"><p>Win/Loss</p>
+          <div id="fighterPic"><img src={require(fighter.img)} /></div>
+          <div id="outer"><h2>Fighter Bio</h2>
 
           <div id="pie"><PieChart size={200}
           labels
@@ -163,7 +136,19 @@ const NavBarConstant = React.createClass({
                 fill: '#fff'
               }
             }}
-            /><p><div id="height">{fighter.height}</div></p></div>
+            />
+            <h3>"{fighter.nick}"</h3>
+
+            <p>Height: {fighter.height}</p></div>
+            <div id ="wiki">
+            <a href={fighter.wiki}> 
+            <img src={require("./pics/Social/Wiki.png")} /> 
+            </a>
+            <a href={fighter.twitter}> 
+            <img src={require("./pics/Social/twitter.png")} />
+            </a>
+            </div>
+
             </div>
             </li>
 
@@ -202,9 +187,7 @@ export class AllFighterComponent extends React.Component {
                 
                 
                 <img src={require(fighter.img)} />
-                <div id="outer"><p>Win/Loss</p>
-                
-                </div>
+               
 
               </li>
 
@@ -258,7 +241,12 @@ export class AllFighterComponent extends React.Component {
     return(
       <div>
       <NavBarConstant />
+      
+      <div id="tweet2"><blockquote class="twitter-tweet" data-lang="en-gb"><p lang="en" dir="ltr">Sometimes it is God&#39;s will to Cause us to Triumph. Weather we deserve or see it! I was blessed… <a href="https://t.co/4nut5NNw1k">https://t.co/4nut5NNw1k</a></p>&mdash; Tyron T-Wood Woodley (@TWooodley) <a href="https://twitter.com/TWooodley/status/797810031030894593">13 November 2016</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+
       <Fighter data={allWelterWeights} />
+
       
     </div>
     );
