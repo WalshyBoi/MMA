@@ -118,40 +118,37 @@ export class Pound4Pound extends React.Component {
 }
 
  }
- export class LightWeight extends React.Component {
-  render() {
-    return(
-      <div>
-      <NavBarConstant />
-      <div id = "lineFighter"><Timeline
-    dataSource={{
-      sourceType: 'profile',
-      screenName: 'TheNotoriousMMA'
-    }}
-    options={{
-      username: 'TheNotoriousMMA',
-      height: '400'
-    }}
-    onLoad={() => console.log('Timeline is loaded!')}
-  /></div>
-      <div id="fighter">
-      <Fighter data={allLightWeights} />
+
+
+   export class LightWeight extends React.Component {
+    render() {
+      return(
+        <div>
+        <NavBarConstant />
+        <div id = "lineFighter"><Timeline
+      dataSource={{
+        sourceType: 'profile',
+        screenName: 'TheNotoriousMMA'
+      }}
+      options={{
+        username: 'TheNotoriousMMA',
+        height: '400'
+      }}
+      onLoad={() => console.log('Timeline is loaded!')}
+    /></div>
+        <div id="fighter">
+        <Fighter data={allLightWeights} />
+        </div>
       </div>
-    </div>
-    );
+      );
+      }
     }
-  }
  
  export class Fighter extends React.Component {
   render() {
 
-    const { data, filterText } = this.props;
-    console.log(data)
-    const namesList = data.filter(fighter =>{
-     
-      return fighter.name.toLowerCase().indexOf(filterText) >= 0
-    })
-    .map(fighter =>{
+    const {data} = this.props;
+    const namesList = data.map(fighter =>{
     
     return(
       
@@ -179,6 +176,47 @@ export class Pound4Pound extends React.Component {
       }
     }}
   /></div></div>
+
+              </li>
+
+    )
+
+    })
+    return(
+     
+    <div id="grid"><p>filterText value is {this.props.filterText}</p><ul>{namesList}</ul></div>
+    
+    );
+    }
+  }
+
+
+
+export class AllFighterComponent extends React.Component {
+  render() {
+
+    const { data, filterText } = this.props;
+    console.log(data)
+    const namesList = data.filter(fighter =>{
+     
+      return fighter.name.toLowerCase().indexOf(filterText) >= 0
+    })
+    .map(fighter =>{
+    
+    return(
+      
+      <li key={fighter.id} className="thumbnailfighter">
+                 
+                
+
+ 
+                <h1> <div id="fightertitle">{fighter.name}</div></h1>
+                
+                
+                <img src={require(fighter.img)} />
+                <div id="outer"><p>Win/Loss</p>
+                
+                </div>
 
               </li>
 
@@ -268,8 +306,7 @@ export class FighterList extends React.Component {
 
 
   render() {
-    console.log('filterText state from parent component', this.state.filterText)
-    return (
+      return (
 	<div>
 	   <NavBarConstant />
       <Search 
@@ -277,7 +314,8 @@ export class FighterList extends React.Component {
        filterUpdate={this.filterUpdate.bind(this)}
        />
 
-       <Fighter data={allWelterWeights} 
+       <AllFighterComponent data={AllFighters} 
+
         filterText={this.state.filterText}
         />
 	
