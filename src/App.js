@@ -4,6 +4,7 @@ import {AllFighters} from './Data'
 import {allFeatherWeights} from './Data'
 import {allLightWeights} from './Data'
 import {allWelterWeights} from './Data'
+import {allHeavyWeights} from './Data'
 import './app.css' ;
 import { Navbar, NavItem, NavDropdown, MenuItem, Nav } from 'react-bootstrap';
 import {Router, Route, browserHistory, Link} from 'react-router';
@@ -46,7 +47,7 @@ const NavBarConstant = React.createClass({
       <div id="navbar">
       <Nav bsStyle="tabs" activeKey="1" onSelect={this.handleSelect}>
        
-        <NavItem eventKey="1"><Link to="/">Home</Link></NavItem>
+        <NavItem eventKey="1"><Link to="/">Home Of</Link></NavItem>
         <NavItem eventKey="2"><Link activeClassName="active" to="/featherweight">Feather Weight</Link></NavItem>
         <NavItem eventKey="3"><Link activeClassName="active" to="/lightweight">Light Weight</Link></NavItem>
         <NavItem eventKey="4"><Link activeClassName="active" to="/welterweight">Welter Weight</Link></NavItem>
@@ -59,17 +60,8 @@ const NavBarConstant = React.createClass({
 });
 
 
-export class Pound4Pound extends React.Component {
-  render() {
-    return(
-      <div>
-      <NavBarConstant />
 
-      
-    </div>
-    );
-    }
-  }
+
 
 
 
@@ -144,51 +136,47 @@ export class Pound4Pound extends React.Component {
       }
     }
  
- export class Fighter extends React.Component {
-  render() {
+    export class Fighter extends React.Component {
+      render() {
 
-    const {data} = this.props;
-    const namesList = data.map(fighter =>{
-    
-    return(
-      
-      <li key={fighter.id} className="thumbnailfighter">
-                 
-                
+        const {data} = this.props;
+        const namesList = data.map(fighter =>{
 
- 
-                <h1> <div id="fightertitle">{fighter.name}</div></h1>
-                
-                
-                <img src={require(fighter.img)} />
-                <div id="outer"><p>Win/Loss</p>
-                
-                <div id="pie"><PieChart size={200}
-    labels
-    data={[
-      {key: 'Win', value: fighter.win, color: '#2a6d3b'},
-      {key: 'Loss', value: fighter.lose, color: '#a0092c'}
-    ]}
-    styles={{
-      '.chart_text': {
-        fontSize: '1em',
-        fill: '#fff'
+          return(
+
+          <li key={fighter.id} className="thumbnailfighter">
+          <h1> <div id="fightertitle">{fighter.name}</div></h1>
+
+
+          <img src={require(fighter.img)} />
+          <div id="outer"><p>Win/Loss</p>
+
+          <div id="pie"><PieChart size={200}
+          labels
+          data={[
+            {key: 'Win', value: fighter.win, color: '#2a6d3b'},
+            {key: 'Loss', value: fighter.lose, color: '#a0092c'}
+            ]}
+            styles={{
+              '.chart_text': {
+                fontSize: '1em',
+                fill: '#fff'
+              }
+            }}
+            /><p><div id="height">{fighter.height}</div></p></div>
+            </div>
+            </li>
+
+            )
+
+          })
+          return(
+
+          <div id="grid"><ul>{namesList}</ul></div>
+
+          );
+        }
       }
-    }}
-  /></div></div>
-
-              </li>
-
-    )
-
-    })
-    return(
-     
-    <div id="grid"><p>filterText value is {this.props.filterText}</p><ul>{namesList}</ul></div>
-    
-    );
-    }
-  }
 
 
 
@@ -225,7 +213,7 @@ export class AllFighterComponent extends React.Component {
     })
     return(
      
-    <div id="grid"><p>filterText value is {this.props.filterText}</p><ul>{namesList}</ul></div>
+    <div id="grid"><ul>{namesList}</ul></div>
     
     );
     }
@@ -282,7 +270,7 @@ export class AllFighterComponent extends React.Component {
     return(
       <div>
       <NavBarConstant />
-      
+      <Fighter data = {allHeavyWeights} />
     </div>
     );
     }
@@ -333,6 +321,7 @@ filterUpdate(){
 render(){
 console.log('filter value',this.props.filterText)
 return(
+  <div id="searchbar">
   <form>
   <input
    type="text"
@@ -341,6 +330,7 @@ return(
    onChange={this.filterUpdate.bind(this)}
   />
   </form>
+  </div>
 
 )
 

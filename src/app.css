@@ -2,7 +2,8 @@
 
 body {
   padding-top: 20px;
-  background-color:white;
+  
+  
 }
 
 .table {
@@ -16,7 +17,7 @@ body {
 
 
 h1 {
-  border-bottom: 1px solid gray;
+  border-bottom: 3px solid #daad86;
 
 }
 .active{
@@ -28,15 +29,21 @@ h1 {
 
 
 #lineFighter{
+	float: top;
 	float: right;
     width: 63%;
     
     
     padding-top:20px;
 } 
+
+#height{
+	float:right;
+}
   
 .thumbnailfighter {
-    background-color: #d1c6c6;
+    background-color: #98dafc;
+    border : 3px solid #daad86;
     float:left;
     position: relative;
     width: 30%;
@@ -60,12 +67,13 @@ h1 {
 
 #pie{
 	display: none;
+
 }
 
 #outer:hover #pie {
   
   display: block;
-
+  
  
   
 }
@@ -73,6 +81,14 @@ h1 {
 
 	 padding-bottom: 1em;
     
+}
+#searchbar{
+	margin: auto;
+    width: 50%;
+    border: 3px solid #daad86;
+    padding: 10px;
+    text-align: center;
+    background-color: #98dafc;
 }
 .thumbnailfighter #PieChart{
   border:black;
