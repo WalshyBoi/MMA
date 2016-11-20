@@ -21,10 +21,13 @@ h1 {
 
 }
 .active{
-    color: #333;
-  border-bottom: 1px solid transparent;
-  padding: 0; /*removing spacing*/
- 
+   
+    border: medium none;
+    border-radius: 0;
+    color:black;
+    border-bottom:   1px solid black;
+    border-top:   1px solid black;
+    padding:5px;
 }
 
 
@@ -42,6 +45,9 @@ h1 {
 }
   
 .thumbnailfighter {
+  padding: 10px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
     background-color: #98dafc;
     border : 3px solid #daad86;
     float:left;
@@ -51,17 +57,22 @@ h1 {
     margin:1.66%;
     background-position:center center;
     background-repeat:no-repeat;
-    background-size:cover; /* you change this to "contain" if you don't want the images to be cropped */  
+    background-size:cover; 
+    list-style-type: none;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* remove bullet points of list */  
 
 }
 .thumbnailfighter img {
   height: auto;
   width: 350px;
-  
+  margin: 0 auto;
+  display:block;
 }
 #fightertitle {
   
  text-align: center;
+ color: white;
+    text-shadow: 2px 2px 4px #000000;
   
 }
 
@@ -70,7 +81,7 @@ h1 {
   display: none;
   margin: auto;
     width: 50px;
-    
+
 }
 
 #pie{
@@ -91,14 +102,20 @@ h1 {
 }
 .thumbnailfighter li{
 	 list-style-type: none;
+   color: white;
+    text-shadow: 2px 2px 4px #000000;
 }
 
 .thumbnailfighter h2{
 	 text-align: center;
 	 color: #312c32;
+   color: white;
+    text-shadow: 2px 2px 4px #000000;
 }
 .thumbnailfighter h3{
    text-align: center;
+   color: white;
+    text-shadow: 2px 2px 4px #000000;
    
 }
 
@@ -128,6 +145,9 @@ h1 {
     padding: 10px;
     text-align: center;
     background-color: #98dafc;
+    padding: 10px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
 }
 .thumbnailfighter #PieChart{
   border:black;

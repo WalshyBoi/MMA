@@ -26,14 +26,14 @@ const NavBarConstant = React.createClass({
   render() {
     return (
       <div id="navbar">
-      <Nav bsStyle="tabs" activeKey="1" onSelect={this.handleSelect}>
-       
-        <NavItem eventKey="1"><Link to="/">Home Of</Link></NavItem>
+      <Nav bsStyle="tabs"  onSelect={this.handleSelect}>
+        
+        <NavItem eventKey="1"><Link to="/">Home Of MMA</Link></NavItem>
         <NavItem eventKey="2"><Link activeClassName="active" to="/featherweight">Feather Weight</Link></NavItem>
         <NavItem eventKey="3"><Link activeClassName="active" to="/lightweight">Light Weight</Link></NavItem>
         <NavItem eventKey="4"><Link activeClassName="active" to="/welterweight">Welter Weight</Link></NavItem>
         <NavItem eventKey="5"><Link activeClassName="active" to="/heavyweight">Heavy Weight</Link></NavItem>
-       
+        
       </Nav>
       </div>
     );
@@ -283,8 +283,8 @@ export class FighterList extends React.Component {
 
   render() {
       return (
-	<div>
-	   <NavBarConstant />
+  <div>
+     <NavBarConstant />
       <Search 
        filterText={this.state.filterText}
        filterUpdate={this.filterUpdate.bind(this)}
@@ -294,8 +294,8 @@ export class FighterList extends React.Component {
 
         filterText={this.state.filterText}
         />
-	
-	  </div>
+  
+    </div>
     )
   }
 }
@@ -307,7 +307,7 @@ filterUpdate(){
   this.props.filterUpdate(val)
 }
 render(){
-console.log('filter value',this.props.filterText)
+
 return(
   <div id="searchbar">
   <form>
